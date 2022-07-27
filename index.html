@@ -9,15 +9,25 @@
     <!-- scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/main.js" defer></script>
+    <script src="js/movein.js" defer></script>
     <!-- stylesheets -->
     <link rel="stylesheet" href="style/main.css">
+    <noscript>
+        <style>
+            .full-page-wrapper{
+                transform: translate(0, 0);
+            }
+            body{
+                overflow-y: auto;
+            }
+        </style>
+    </noscript>
 </head>
 <body>
     <div class="full-page-wrapper">
         <div class="center-text">
             <p>Companion Cube ♥</p>
         </div>
-
         <!-- rotating cube -->
         <div class="cube-wrapper">
             <div class="cube">
@@ -29,12 +39,9 @@
                 <div class="cube-face right"></div>
             </div>
         </div>
-
     </div>
-
 </body>
 </html>
-
 
 <!-- 
     animation library to move stuff like

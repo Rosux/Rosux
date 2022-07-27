@@ -43,6 +43,8 @@ var hi = new Audio('audio/hi.wav');
 //     return audio[Math.floor(Math.random() * audio.length)];
 // }
 
-document.getElementsByClassName("cube-wrapper")[0].addEventListener("click", (e) => {
-    hi.play();
-});
+for(i=0; i < document.getElementsByClassName("cube-face").length; i++){
+    document.getElementsByClassName("cube-face")[i].addEventListener("click", (e) => {
+        hi.play();
+    });
+}
