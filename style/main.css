@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* 
+lightmode:
+    --text: #959595;
+    --text-highlight: #6f6f6f;
+    --background-color: #eaeaea;
+    --full-color: #000000;
+darkmode:
+    --text: rgb(90, 90, 90);
+    --text-highlight: rgb(140, 140, 140);
+    --background-color: #181818;
+    --full-color: #ffffff;
+*/
+:root{
+    --full-color: #ffffff;
+    --text-highlight: rgb(140, 140, 140);
+    --text: rgb(90, 90, 90);
+    --background-color: #181818;
+    --font: 'Noto Sans', sans-serif;
+}
+*{
+    box-sizing: border-box;
+}
+body, html{
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    color: var(--text);
+    background-color: var(--background-color);
+    font-family: var(--font);
+    font-weight: 100;
+}
+p, a, h1, h2, h3, h4, h5, h6{
+    padding: 0;
+    margin: 0;
+}
+.full-page-wrapper{
+    width: 100%;
+    height: 100vh;
+    min-height: 40rem;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.center-text{
+    width: 100%;
+}
+.center-text > p{
+    width: 100%;
+    text-align: center;
+    font-size: 4rem;
+    color: var(--text-highlight);
+    z-index: 10;
+}
+.full-page-wrapper > .cube-wrapper{
+    margin-top: 50px;
+    cursor: pointer;
+}
+.cube{
+    width: 10rem;
+    aspect-ratio: 1/1;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(-22deg) rotateY(45deg);
+    animation: rotate-cube linear;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+@keyframes rotate-cube {
+    0%{
+        transform: rotateX(-22deg) rotateY(45deg);
+    }
+    100%{
+        transform: rotateX(-22deg) rotateY(405deg);
+    }
+}
+.cube-face{
+    transform-style: preserve-3d;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: solid 1px white;
+    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c6b3706e-b3a8-4a08-95ad-b68c680c2541/dbhf9bq-dfd77214-73d8-401c-86a5-3632908454d0.png/v1/fill/w_894,h_893,strp/companion_cube_by_radioactiveflowers_dbhf9bq-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTAyMyIsInBhdGgiOiJcL2ZcL2M2YjM3MDZlLWIzYTgtNGEwOC05NWFkLWI2OGM2ODBjMjU0MVwvZGJoZjlicS1kZmQ3NzIxNC03M2Q4LTQwMWMtODZhNS0zNjMyOTA4NDU0ZDAucG5nIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.jypPJghHijzvsxYS-lLtBn2PDmckY2pobYTkUZJwkTA");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: white;
+}
+/* rotate */
+.cube-face.front{
+    transform: rotateY(0deg) translateZ(5rem);
+}
+.cube-face.back{
+    transform: rotateY(0deg) translateZ(-5rem);
+}
+.cube-face.top{
+    transform: rotateX(90deg) translateZ(5rem);
+}
+.cube-face.bottom{
+    transform: rotateX(90deg) translateZ(-5rem);
+}
+.cube-face.left{
+    transform: rotateY(90deg) translateZ(-5rem);
+}
+.cube-face.right{
+    transform: rotateY(90deg) translateZ(5rem);
+}
+.cube-face.bottom::before{
+    content: "";
+    position: absolute;
+    transform: translateZ(-5rem);
+    background-color: #eeafe4;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    filter: blur(6rem);
+}
